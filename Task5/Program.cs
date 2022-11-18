@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Library;
+using System.Linq;
+using System.Text;
 
 namespace Task5
 {
@@ -6,26 +8,122 @@ namespace Task5
     {
         static void Main(string[] args)
         {
-            Car car = new Car("BMV", 2012, 120, true);
-            Ship ship = new Ship("MD", 2022);
+            ////3
+            //Car car = new Car("Suzuki", 2012, 120, true);
+            //Ship ship = new Ship("HMS Beagle", 2022);
 
-            PriceMax(car.Model, car.price, car.GearBox, car.YearManufacture, car.Horsepower, ship.Model, ship.price, ship.YearManufacture);
+            //PriceMax(car, ship);
+
+            ////4
+            //List<Ship> list = new List<Ship>();
+            //list.Add(new Ship("Viking Longboat", 2022));
+            //list.Add(new Ship("HMS Bounty", 2011));
+            //list.Add(new Ship("Diana Frigate", 1980));
+            //list.Add(new Ship("Diana Frigate", 2016));
+
+            //foreach (Ship item in VehiclePurchases(list, 89000))
+            //{
+            //    Console.WriteLine($"{item.Model}, {item.YearManufacture} year, {item.price}$");
+            //}
+
+            ////5
+            //List<Car> carList = new List<Car>();
+            //carList.Add(new Car("Tesla", 2012, 120, true));
+            //carList.Add(new Car("Suzuki", 2011, 120, true));
+            //carList.Add(new Car("BMV", 2012, 120, true));
+            //carList.Add(new Car("Mercedes-Benz ", 1975, 120, true));
+
+            //List<Ship> shipList = new List<Ship>();
+            //shipList.Add(new Ship("Viking Longboat", 2022));
+            //shipList.Add(new Ship("HMS Bounty", 2011));
+            //shipList.Add(new Ship("Diana Frigate", 2011));
+            //shipList.Add(new Ship("Diana Frigate", 2016));
+
+            //foreach (var item in MaxShipShopp(carList, shipList))
+            //{
+            //    Console.WriteLine(item);
+            //}
+            Console.ReadKey();
         }
 
-        private static void PriceMax(string model, int price, bool gearBox, int yearManufacture, int horsepower, string model1, int price1, int yearManufacture1)
-        {
-            if (price > price1)
-            {
-                Console.WriteLine($"A car of model - {model} gearBox - {gearBox} " +
-                    $"yearManufactur - {yearManufacture} horsepower - {horsepower}" +
-                    $" is more expensive than boat of model - {model1} yearManufacture1 - {yearManufacture1}");
-            }
-            else
-            {
-                Console.WriteLine($"A car of model - {model1} yearManufacture1 - {yearManufacture1}" +
-                    $" is more expensive than boat of model - {model} gearBox - {gearBox} " +
-                    $"yearManufactur - {yearManufacture} horsepower - {horsepower}");
-            }
-        }
+        ////3
+        //private static void PriceMax(Car car, Ship ship)
+        //{
+        //    if (car.price > ship.price)
+        //    {
+        //        Console.WriteLine($"A car of model - {car.Model} gearBox - {car.GearBox} " +
+        //            $"YearManufactur - {car.YearManufacture} horsepower - {car.Horsepower}" +
+        //            $" is more expensive than boat of model - {ship.Model} YearManufacture - {ship.YearManufacture}");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine($"A car of model - {ship.Model} YearManufacture - {ship.YearManufacture}" +
+        //           $" is more expensive than boat of model - {car.Model} gearBox - {car.GearBox} " +
+        //           $"YearManufactur - {car.YearManufacture} horsepower - {car.Horsepower}");
+        //    }
+        //}
+
+        ////4
+        //private static List<Ship> VehiclePurchases(List<Ship> shipLlist, int money)
+        //{
+        //    List<Ship> shoppԼist = new List<Ship>();
+        //    shipLlist.Sort((x, y) => x.price.CompareTo(y.price));
+        //    int sum = 0;
+        //    foreach (Ship item in shipLlist)
+        //    {
+        //        if (sum + item.price <= money)
+        //        {
+        //            sum += item.price;
+        //            shoppԼist.Add(item);
+        //        }
+        //        else
+        //        {
+        //            break;
+        //        }
+        //    }
+        //    return shoppԼist;
+        //}
+
+        ////5
+        //private static List<int> MaxShipShopp(List<Car> cars, List<Ship> ships)
+        //{
+        //    List<int> years = new List<int>();
+        //    Dictionary<int, int> ShipList = new Dictionary<int, int>();
+        //    Dictionary<int, int> CarList = new Dictionary<int, int>();
+        //    foreach (Ship item in ships)
+        //    {
+        //        if (ShipList.ContainsKey(item.YearManufacture))
+        //        {
+        //            ShipList[item.YearManufacture] += 1;
+        //        }
+        //        else
+        //        {
+        //            ShipList.Add(item.YearManufacture, 1);
+        //        }
+        //    }
+        //    foreach (Car item in cars)
+        //    {
+        //        if (CarList.ContainsKey(item.YearManufacture))
+        //        {
+        //            CarList[item.YearManufacture] += 1;
+        //        }
+        //        else
+        //        {
+        //            CarList.Add(item.YearManufacture, 1);
+        //        }
+        //    }
+        //    foreach (var item in ShipList)
+        //    {
+        //        foreach (var item1 in CarList)
+        //        {
+        //            if (ShipList.ContainsKey(item.Key) == CarList.ContainsKey(item1.Key) && ShipList[item.Key] > CarList[item1.Key])
+        //            {
+        //                years.Add(item.Key);
+        //                break;
+        //            }
+        //        }
+        //    }
+        //    return years;
+        //}
     }
 }

@@ -1,12 +1,24 @@
-﻿using ConsoleApp1;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Task5
+namespace Library
 {
-    public class Car : Classadd
+    public class Car:Vehicle
     {
         public int Horsepower { get; set; }
         public bool GearBox { get; set; }
-        private int Price;
+
+        public Car(string model, int yearManufacture, int horsepower, bool gearBox)
+        {
+            Model = model;
+            YearManufacture = yearManufacture;
+            Horsepower = horsepower;
+            GearBox = gearBox;
+        }
+
         public override int price
         {
             get
@@ -30,13 +42,6 @@ namespace Task5
                 return Price;
             }
             set => this.price = value;
-        }
-        public Car(string model, int yearManufacture, int horsepower, bool gearBox)
-        {
-            Model = model;
-            YearManufacture = yearManufacture;
-            Horsepower = horsepower;
-            GearBox = gearBox;
         }
     }
 }

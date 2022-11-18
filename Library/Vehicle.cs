@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Library
 {
-    public class Classadd
+    public class Vehicle
     {
         public string Model { get; set; }
         public int YearManufacture { get; set; }
         public virtual int price { get; set; }
+        protected int Price;
     }
 }
