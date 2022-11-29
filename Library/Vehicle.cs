@@ -6,11 +6,22 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class Vehicle
+    public abstract class Vehicle:IItem
     {
-        public string Model { get; set; }
-        public int YearManufacture { get; set; }
-        public virtual int price { get; set; }
-        protected int Price;
+        public string Model { get; private set; }
+        public int YearManufacture { get; private set; }
+        public Vehicle(string model, int yearManufacture)
+        {
+            Model = model;
+            YearManufacture = yearManufacture;
+        }
+
+        public Vehicle()
+        {
+        }
+
+        public abstract int GetMaxSpeed();
+
+        public abstract int GetPrice();
     }
 }

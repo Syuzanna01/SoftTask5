@@ -23,7 +23,7 @@ namespace Task5
 
             //foreach (Ship item in VehiclePurchases(list, 89000))
             //{
-            //    Console.WriteLine($"{item.Model}, {item.YearManufacture} year, {item.price}$");
+            //    Console.WriteLine($"{item.Model}, {item.YearManufacture} year, {item.Price}$");
             //}
 
             ////5
@@ -49,17 +49,23 @@ namespace Task5
         ////3
         //private static void PriceMax(Car car, Ship ship)
         //{
-        //    if (car.price > ship.price)
+        //    if (car.Price > ship.Price)
         //    {
         //        Console.WriteLine($"A car of model - {car.Model} gearBox - {car.GearBox} " +
         //            $"YearManufactur - {car.YearManufacture} horsepower - {car.Horsepower}" +
         //            $" is more expensive than boat of model - {ship.Model} YearManufacture - {ship.YearManufacture}");
         //    }
-        //    else
+        //    else if (car.Price < ship.Price)
         //    {
         //        Console.WriteLine($"A car of model - {ship.Model} YearManufacture - {ship.YearManufacture}" +
         //           $" is more expensive than boat of model - {car.Model} gearBox - {car.GearBox} " +
         //           $"YearManufactur - {car.YearManufacture} horsepower - {car.Horsepower}");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine($"A car of model - {car.Model} gearBox - {car.GearBox} " +
+        //          $"YearManufactur - {car.YearManufacture} horsepower - {car.Horsepower}" +
+        //          $" is equal model - {ship.Model} YearManufacture - {ship.YearManufacture}");
         //    }
         //}
 
@@ -67,13 +73,13 @@ namespace Task5
         //private static List<Ship> VehiclePurchases(List<Ship> shipLlist, int money)
         //{
         //    List<Ship> shoppԼist = new List<Ship>();
-        //    shipLlist.Sort((x, y) => x.price.CompareTo(y.price));
+        //    shipLlist.Sort((x, y) => x.Price.CompareTo(y.Price));
         //    int sum = 0;
         //    foreach (Ship item in shipLlist)
         //    {
-        //        if (sum + item.price <= money)
+        //        if (sum + item.Price <= money)
         //        {
-        //            sum += item.price;
+        //            sum += item.Price;
         //            shoppԼist.Add(item);
         //        }
         //        else
@@ -114,13 +120,10 @@ namespace Task5
         //    }
         //    foreach (var item in ShipList)
         //    {
-        //        foreach (var item1 in CarList)
+        //        if (ShipList.ContainsKey(item.Key) == CarList.ContainsKey(item.Key) && ShipList[item.Key] > CarList[item.Key])
         //        {
-        //            if (ShipList.ContainsKey(item.Key) == CarList.ContainsKey(item1.Key) && ShipList[item.Key] > CarList[item1.Key])
-        //            {
-        //                years.Add(item.Key);
-        //                break;
-        //            }
+        //            years.Add(item.Key);
+        //            break;
         //        }
         //    }
         //    return years;

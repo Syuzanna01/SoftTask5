@@ -6,31 +6,38 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class Ship:Vehicle
+    public class Ship : Vehicle
     {
-        public Ship(string model, int yearManufacture)
+        public Ship(string model, int yearManufacture) : base(model, yearManufacture)
         {
-            Model = model;
-            YearManufacture = yearManufacture;
         }
-
-        public override int price
+        public override int GetMaxSpeed()
         {
-            get
+            if (GetPrice() > 20000 && YearManufacture > 2020)
             {
-                if (YearManufacture > 2020)
-                {
-                    Price = 900000;
-                }
-                else if (YearManufacture > 2010)
-                {
-                    Price = 30000;
-                }
-                else
-                    Price = 2000;
-                return Price;
+                return 140;
             }
-            set => this.Price = value;
+            else if (Model == "Diana" && YearManufacture < 2015)
+            {
+                return 130;
+            }
+            else
+            {
+                return 90;
+            }
+        }
+        public override int GetPrice()
+        {
+            if (YearManufacture > 2020)
+            {
+                return 900000;
+            }
+            else if (YearManufacture > 2010)
+            {
+                return 30000;
+            }
+            else
+                return 2000;
         }
     }
 }
