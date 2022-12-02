@@ -10,22 +10,22 @@ namespace Library
     {
         List<IItem> items = new List<IItem>();
         public int Budget { get; set; }
-        public int AddItem(IItem item, int price,int count)
+        public bool AddItem(IItem item, int price)
         {
+            bool buy = false;
             try
             {
-                if (item.GetPrice() > Budget )
+                if (item.GetPrice() > Budget)
                 {
-                    count--;
                     throw new Exeption();
                 }
-                else if( item.GetPrice() < price)
+                else if (item.GetPrice() < price)
                 {
-                    count--;
                     throw new Eeption();
                 }
                 else
                 {
+                    buy = true;
                     items.Add(item);
                     Budget -= price;
                 }
@@ -34,11 +34,11 @@ namespace Library
             {
                 Console.WriteLine(item.Model + " purchase failed the amount is not enough");
             }
-            catch(Eeption )
+            catch (Eeption)
             {
                 Console.WriteLine(item.Model + " purchase failed the price is greater than the market price");
             }
-            return count;
+            return buy;
         }
 
         public int Compare(OnlineMarket? x, OnlineMarket? y)

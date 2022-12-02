@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public abstract class Vehicle:IItem,IComparable
+    public abstract class Vehicle : IItem, IComparable
     {
         public string Model { get; private set; }
         public int YearManufacture { get; private set; }
