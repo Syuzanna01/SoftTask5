@@ -9,7 +9,7 @@ namespace Library
     public class PC : IItem
     {
         public string Model { get; private set; }
-        public int Mamory { get; set; }
+        public int Mamory { get; private set; }
         public PC(string model, int mamory)
         {
             Model = model;

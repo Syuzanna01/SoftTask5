@@ -6,6 +6,7 @@ namespace Task6
     {
         static void Main(string[] args)
         {
+
             //1
             Car car = new("Tesla", 2021, 130, true);
             Ship ship = new("Viking Longboat", 2022);

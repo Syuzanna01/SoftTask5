@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public interface IItem
+    public class Exeption:Exception
     {
-        public string Model { get; }
-        public int GetPrice();
-
+    }
+    public class Eeption : Exception
+    {
     }
 }

@@ -11,6 +11,12 @@ namespace Library
         public Ship(string model, int yearManufacture) : base(model, yearManufacture)
         {
         }
+
+        public override int CompareTo(object? obj)
+        {
+            return GetMaxSpeed().CompareTo(((Vehicle)obj).GetMaxSpeed());
+        }
+
         public override int GetMaxSpeed()
         {
             if (GetPrice() > 20000 && YearManufacture > 2020)

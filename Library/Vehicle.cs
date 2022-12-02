@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public abstract class Vehicle:IItem
+    public abstract class Vehicle:IItem,IComparable
     {
         public string Model { get; private set; }
         public int YearManufacture { get; private set; }
@@ -23,5 +23,7 @@ namespace Library
         public abstract int GetMaxSpeed();
 
         public abstract int GetPrice();
+
+        public abstract int CompareTo(object? obj);
     }
 }
