@@ -24,6 +24,9 @@ namespace Library
 
         public abstract int GetPrice();
 
-        public abstract int CompareTo(object? obj);
+        public int CompareTo(object? obj)
+        {
+            return GetMaxSpeed().CompareTo(((Vehicle)obj).GetMaxSpeed());
+        }
     }
 }

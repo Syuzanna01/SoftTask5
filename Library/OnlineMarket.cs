@@ -6,49 +6,73 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class OnlineMarket : IComparer<OnlineMarket>
+    public class OnlineMarket
     {
         List<IItem> items = new List<IItem>();
-        public int Budget { get; set; }
-        public bool AddItem(IItem item, int price)
+
+        public void OMarket(List<IItem> list)
         {
-            bool buy = false;
-            try
-            {
-                if (item.GetPrice() > Budget)
-                {
-                    throw new Exeption();
-                }
-                else if (item.GetPrice() < price)
-                {
-                    throw new Eeption();
-                }
-                else
-                {
-                    buy = true;
-                    items.Add(item);
-                    Budget -= price;
-                }
-            }
-            catch (Exeption)
-            {
-                Console.WriteLine(item.Model + " purchase failed the amount is not enough");
-            }
-            catch (Eeption)
-            {
-                Console.WriteLine(item.Model + " purchase failed the price is greater than the market price");
-            }
-            return buy;
+            items = list;
         }
 
-        public int Compare(OnlineMarket? x, OnlineMarket? y)
+        public int Budget { get; set; }
+        public void AddItem(IItem item, int price)
         {
-            if (x.Budget > y.Budget)
-                return 1;
-            if (x.items.Count < y.items.Count)
-                return -1;
+            if (item.GetPrice() > Budget)
+            {
+                throw new DontBuyItem();
+            }
+            else if (item.GetPrice() < price)
+            {
+                throw new DontBuyItem();
+            }
             else
-                return 0;
+            {
+                items.Add(item);
+                Budget -= price;
+            }
+        }
+
+        public static bool operator <(OnlineMarket market1, OnlineMarket market2)
+        {
+            decimal product1 = 0;
+            decimal product2 = 0;
+            foreach (var item in market1.items)
+            {
+                product1 += item.GetPrice();
+            }
+
+            foreach (var item in market2.items)
+            {
+                product2 += item.GetPrice();
+            }
+            if (market1.Budget > market2.Budget)
+            {
+                return true;
+            }
+            else if (product2 > product1)
+            {
+                return false;
+            }
+            else
+                return false;
+        }
+
+        public static bool operator >(OnlineMarket market1, OnlineMarket market2)
+        {
+            decimal sum1 = 0;
+            decimal sum2 = 0;
+            foreach (var item in market1.items)
+            {
+                sum1 += item.GetPrice();
+            }
+
+            foreach (var item in market2.items)
+            {
+                sum2 += item.GetPrice();
+            }
+
+            return (market1.Budget + sum1).CompareTo(market2.Budget + sum2) > 0;
         }
     }
 }

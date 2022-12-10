@@ -12,11 +12,6 @@ namespace Library
         {
         }
 
-        public override int CompareTo(object? obj)
-        {
-            return GetMaxSpeed().CompareTo(((Vehicle)obj).GetMaxSpeed());
-        }
-
         public override int GetMaxSpeed()
         {
             if (GetPrice() > 20000 && YearManufacture > 2020)

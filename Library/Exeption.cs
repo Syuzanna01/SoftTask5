@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class Exeption:Exception
-    {
-    }
-    public class Eeption : Exception
+    public class DontBuyItem : Exception
     {
     }
 }

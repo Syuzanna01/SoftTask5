@@ -39,51 +39,55 @@ namespace Task6
             market.AddItem(ship1,60000);
             market.AddItem(car1,4000);
 
-
-
             OnlineMarket market1 = new() { Budget = 80000 };
             OnlineMarket market2 = new() { Budget = 5000000 };
-
-
-
         }
 
-        public static Vehicle[] GetFastestVehicles(List<Vehicle> vehicle)
+        //2 LINQ
+        public static IEnumerable<Vehicle> GetFastestVehicles(List<Vehicle> vehicle)
         {
-            Vehicle[] vehicles = new Vehicle[3];
-            int item1 = 0;
-            int current;
-            int item2 = 0;
-            int item3 = 0;
+            IEnumerable<Vehicle> vehicles = vehicle.OrderByDescending(x=>x.GetMaxSpeed()).Take(3);
 
-            foreach (Vehicle item in vehicle)
-            {
-                current = item.GetMaxSpeed();
-                if (item1 < item2)
-                {
-                    if (item1 < item3 && current > item1)
-                    {
-                        item1 = current;
-                        vehicles[0] = item;
-                    }
-                    else if (current > item3)
-                    {
-                        item3 = current;
-                        vehicles[2] = item;
-                    }
-                }
-                else if (item2 < item3 && current > item2)
-                {
-                    item2 = current;
-                    vehicles[1] = item;
-                }
-                else if (current > item3)
-                {
-                    item3 = current;
-                    vehicles[2] = item;
-                }
-            }
             return vehicles;
         }
+
+        //2
+        //public static Vehicle[] GetFastestVehicles(List<Vehicle> vehicle)
+        //{
+        //    Vehicle[] vehicles = new Vehicle[3];
+        //    int item1 = 0;
+        //    int current;
+        //    int item2 = 0;
+        //    int item3 = 0;
+
+        //    foreach (Vehicle item in vehicle)
+        //    {
+        //        current = item.GetMaxSpeed();
+        //        if (item1 < item2)
+        //        {
+        //            if (item1 < item3 && current > item1)
+        //            {
+        //                item1 = current;
+        //                vehicles[0] = item;
+        //            }
+        //            else if (current > item3)
+        //            {
+        //                item3 = current;
+        //                vehicles[2] = item;
+        //            }
+        //        }
+        //        else if (item2 < item3 && current > item2)
+        //        {
+        //            item2 = current;
+        //            vehicles[1] = item;
+        //        }
+        //        else if (current > item3)
+        //        {
+        //            item3 = current;
+        //            vehicles[2] = item;
+        //        }
+        //    }
+        //    return vehicles;
+        //}
     }
 }

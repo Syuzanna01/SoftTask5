@@ -34,29 +34,29 @@ namespace Task7
             //}
 
             ////2
-            //PC pc = new("Apple", 8000);//400000
-            //Car car1 = new("Mercedes-Benz ", 1975, 90, false);//7000000
-            //Ship ship1 = new("Viking Longboat", 2022);//900000
-
-            //OnlineMarket market1 = new() { Budget = 5000000 };//3500000
-            //market1.AddItem(car1, 1000000);//+
-            //market1.AddItem(pc, 200000);//+
-            //market1.AddItem(ship1, 300000);//+
-            //OnlineMarket market2 = new() { Budget = 3000000 };//2400000
-            //market2.AddItem(pc, 200000);//+
-            //market2.AddItem(car1, 80000);//-
-            //market2.AddItem(ship1, 400000);//+
-
-            //Console.WriteLine("--------------------------");
-            //OnlineMarket[] market = new OnlineMarket[2];
-            //market[0] = market1;
-            //market[1] = market2;
-
-            //Array.Sort(market, new OnlineMarket());
-            //foreach (var item in market)
+            //List<IItem> list1 = new List<IItem>()
             //{
-            //    Console.WriteLine(item.Budget);
-            //}
+            //     new Car("Tesla", 2021, 130, true),
+            //     new Car("Suzuki", 2011, 80, false),
+            //     new Ship("Viking Longboat", 2022),
+            //};
+
+            //List<IItem> list2 = new List<IItem>()
+            //{
+            //     new Ship("Viking Longboat", 2022),
+            //     new Ship("HMS Bounty", 2011),
+            //     new PC("Apple", 8000),
+            //     new PC("PRESTIGIO SmartBook 141 C7", 3000),
+            //};
+
+            //OnlineMarket market1 = new OnlineMarket() { Budget=150000};
+            //market1.OMarket(list1);
+            //OnlineMarket market2 = new OnlineMarket() { Budget=250000};
+            //market2.OMarket(list2);
+
+            //Console.WriteLine(market1 < market2);
+            //Console.WriteLine(market1 > market2);
+            //Console.WriteLine();
 
             ////3
             //Car car = new("Tesla", 2021, 130, true);
@@ -109,10 +109,15 @@ namespace Task7
             int count = 0;
             foreach (var item in ItemList)
             {
-                if (market.AddItem(item.Key, item.Value))
+                try
                 {
+                    market.AddItem(item.Key, item.Value);
                     count++;
                 }
+                catch (DontBuyItem)
+                {
+                }
+
             }
             return count;
         }

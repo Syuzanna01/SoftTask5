@@ -16,10 +16,6 @@ namespace Library
             Horsepower = horsepower;
             GearBox = gearBox;
         }
-        public override int CompareTo(object? obj)
-        {
-            return GetMaxSpeed().CompareTo(((Vehicle)obj).GetMaxSpeed());
-        }
 
         public override int GetMaxSpeed()
         {
